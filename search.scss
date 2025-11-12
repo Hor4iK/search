@@ -1,0 +1,138 @@
+/*
+.search__container {
+  width: 20vw;
+  height: 100%;
+  max-width: 356px;
+}
+*/
+
+.search {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  line-height: 1.4;
+  font-size: 16px;
+  border-radius: 10px;
+  transition: outline 250ms, max-width 550ms ease-out;
+  outline: 1px solid transparent;
+
+  &:focus,
+  &:active {
+    outline: 1px solid $color-accent;
+  }
+
+  &__form {
+    padding: 10px;
+    position: relative;
+    background-color: $bg-grey;
+    border-radius: 10px;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 17px;
+      right: 20px;
+      width: 18px;
+      aspect-ratio: 1/1;
+      background-image: url(../img/icons/search.svg);
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding: 4px 6px 4px;
+    position: relative;
+    background-color: inherit;
+
+    &::placeholder {
+      color: $color-dark-grey;
+    }
+  }
+
+  &__content {
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    right: 0;
+    transition: max-height 650ms ease-in-out, padding 200ms;
+    z-index: 5;
+
+    ul {
+      max-height: 220px;
+      overflow-y: auto;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+      &::-webkit-scrollbar-track {
+        background-color: $color-accent-op-10;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: $color-accent;
+      }
+    }
+  }
+
+  &__hints {
+    border: 1px solid $color-accent;
+    padding: 24px 0 0 24px;
+    border-radius: 12px;
+    background-color: $color-white;
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  &__button {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f9ff;
+    border-radius: 10px;
+    overflow: hidden;
+    outline: 2px solid transparent;
+    outline-offset: -1px;
+    transition: outline 400ms ease-out;
+
+    &:hover,
+    &:focus {
+      outline: 2px solid $color-accent;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 18px;
+      aspect-ratio: 1 / 1;
+      background-image: url(../img/icons/search.svg);
+    }
+  }
+
+  &.open {
+    .search__content {
+      max-height: 500px;
+    }
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &.active {
+    max-width: 450px !important;
+  }
+
+  &_desktop {
+    @media screen and (width<=1170px) {
+      display: none;
+    }
+  }
+}
